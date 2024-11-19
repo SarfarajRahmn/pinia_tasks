@@ -3,8 +3,16 @@
     <h3>{{ task.title }}</h3>
 
     <div class="icon">
-      <i class="material-icons"> delete </i>
-      <i class="material-icons"> favorite </i>
+      <i class="material-icons" @click="taskStore.deleteTask(task.id)">
+        delete
+      </i>
+      <i
+        :class="{ active: task.isFav }"
+        class="material-icons"
+        @click="taskStore.toggleFav(task.id)"
+      >
+        favorite
+      </i>
     </div>
   </div>
 </template>
